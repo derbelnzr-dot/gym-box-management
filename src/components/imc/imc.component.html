@@ -1,0 +1,70 @@
+<div class="max-w-md mx-auto">
+  <div class="glass rounded-2xl p-8 border border-white/5">
+    <div class="text-center mb-6">
+      <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+        <span class="material-icons text-primary text-2xl">monitor_weight</span>
+      </div>
+      <h3 class="text-xl font-bold text-white">Calcul IMC</h3>
+      <p class="text-sm text-gray-400">Calculez votre Indice de Masse Corporelle</p>
+    </div>
+
+    <div class="space-y-4">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm text-gray-300 mb-1">Poids (kg)</label>
+          <input type="number" [(ngModel)]="poids" placeholder="70"
+                 class="input-premium text-center">
+        </div>
+        <div>
+          <label class="block text-sm text-gray-300 mb-1">Taille (cm)</label>
+          <input type="number" [(ngModel)]="taille" placeholder="175"
+                 class="input-premium text-center">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm text-gray-300 mb-1">Âge</label>
+          <input type="number" [(ngModel)]="age" placeholder="25"
+                 class="input-premium text-center">
+        </div>
+        <div>
+          <label class="block text-sm text-gray-300 mb-1">Sexe</label>
+          <select [(ngModel)]="sexe" class="input-premium text-center">
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+          </select>
+        </div>
+      </div>
+
+      <button (click)="calculerIMC()" class="btn-primary w-full py-3 flex items-center justify-center gap-2">
+        <span class="material-icons">calculate</span>
+        Calculer
+      </button>
+
+      @if (imc) {
+        <div class="mt-4 p-5 rounded-xl bg-white/5 border border-white/5 text-center animate-scale-in">
+          <div class="text-sm text-gray-400 mb-1">Votre IMC</div>
+          <div class="text-4xl font-extrabold text-gradient mb-2">{{ imc | number:'1.1-1' }}</div>
+          <div class="text-lg font-semibold" [class]="getColorClass()">
+            {{ resultat }}
+          </div>
+          <div class="mt-4 pt-4 border-t border-white/5">
+            <div class="flex items-center justify-between text-xs text-gray-500">
+              <span class="text-blue-400">Maigreur</span>
+              <span class="text-green-400">Normal</span>
+              <span class="text-yellow-400">Surpoids</span>
+              <span class="text-red-400">Obésité</span>
+            </div>
+            <div class="mt-2 h-2 rounded-full bg-white/5 overflow-hidden flex">
+              <div class="h-full bg-blue-400" style="width: 18%"></div>
+              <div class="h-full bg-green-400" style="width: 25%"></div>
+              <div class="h-full bg-yellow-400" style="width: 22%"></div>
+              <div class="h-full bg-red-400" style="width: 35%"></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

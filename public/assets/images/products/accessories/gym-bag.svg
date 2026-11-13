@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111d33"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="24" fill="url(#bg)"/>
+  <circle cx="300" cy="280" r="220" fill="url(#glow)"/>
+  <g transform="rotate(-5 300 300)">
+    <rect x="150" y="280" width="300" height="150" rx="34" fill="url(#bag)" stroke="#2b3b57" stroke-width="3"/>
+    <path d="M230 280 Q230 225 300 225 Q370 225 370 280" fill="none" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+    <rect x="140" y="300" width="90" height="22" rx="11" fill="#22c55e"/>
+    <rect x="370" y="300" width="90" height="22" rx="11" fill="#22c55e"/>
+    <text x="300" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#86efac">GYMBOX</text>
+  </g>
+  <text x="300" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#ffffff">Sac de sport</text>
+  <text x="300" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="600" fill="#22c55e">40 L — GYMBOX STORE</text>
+</svg>

@@ -1,0 +1,99 @@
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+     [class.glass-nav]="isScrolled"
+     [class.border-b]="isScrolled"
+     [class.border-white/5]="isScrolled"
+     [class.bg-transparent]="!isScrolled">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <a routerLink="/" class="flex items-center gap-2 group" (click)="closeMenu()">
+        <div class="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+          <span class="material-icons text-white text-xl">fitness_center</span>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight">
+          <span class="text-white">GYM</span><span class="text-primary">BOX</span>
+        </span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-1">
+        <a routerLink="/" class="nav-link" (click)="closeMenu()">Accueil</a>
+        <a routerLink="/programmes" class="nav-link" (click)="closeMenu()">Programmes</a>
+        <a routerLink="/coachs" class="nav-link" (click)="closeMenu()">Coachs</a>
+        <a routerLink="/planning" class="nav-link" (click)="closeMenu()">Planning</a>
+        <a routerLink="/store" class="nav-link" (click)="closeMenu()">Store</a>
+        <a routerLink="/contact" class="nav-link" (click)="closeMenu()">Contact</a>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <a routerLink="/cart" class="relative p-2 text-gray-400 hover:text-white transition-colors" (click)="closeMenu()">
+          <span class="material-icons">shopping_cart</span>
+        </a>
+
+        @if (isLoggedIn) {
+          <div class="flex items-center gap-3">
+            <a [routerLink]="currentUser?.role === 'ADMIN' ? '/admin-dashboard' : '/member-home'"
+               class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-white/5 hover:bg-white/10 transition-all">
+              <span class="material-icons text-primary text-lg">account_circle</span>
+              {{ currentUser?.username }}
+            </a>
+            <button (click)="logout()" class="p-2 text-gray-400 hover:text-primary transition-colors">
+              <span class="material-icons">logout</span>
+            </button>
+          </div>
+        } @else {
+          <a routerLink="/login" class="btn-primary text-sm !px-5 !py-2.5">Connexion</a>
+          <a routerLink="/signup" class="btn-outline text-sm !px-5 !py-2">Inscription</a>
+        }
+      </div>
+
+      <button (click)="toggleMenu()" class="lg:hidden p-2 text-white hover:text-primary transition-colors">
+        @if (menuOpen) {
+          <span class="material-icons">close</span>
+        } @else {
+          <span class="material-icons">menu</span>
+        }
+      </button>
+    </div>
+  </div>
+
+  @if (menuOpen) {
+    <div class="lg:hidden fixed inset-0 z-40">
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeMenu()"></div>
+      <div class="absolute top-20 left-4 right-4 glass rounded-2xl p-6 shadow-2xl border border-white/10 animate-slide-up">
+        <div class="flex flex-col gap-2">
+          <a routerLink="/" class="mobile-nav-link" (click)="closeMenu()">
+            <span class="material-icons text-lg">home</span> Accueil
+          </a>
+          <a routerLink="/programmes" class="mobile-nav-link" (click)="closeMenu()">
+            <span class="material-icons text-lg">fitness_center</span> Programmes
+          </a>
+          <a routerLink="/coachs" class="mobile-nav-link" (click)="closeMenu()">
+            <span class="material-icons text-lg">people</span> Coachs
+          </a>
+          <a routerLink="/planning" class="mobile-nav-link" (click)="closeMenu()">
+            <span class="material-icons text-lg">calendar_month</span> Planning
+          </a>
+          <a routerLink="/store" class="mobile-nav-link" (click)="closeMenu()">
+            <span class="material-icons text-lg">store</span> Store
+          </a>
+          <a routerLink="/contact" class="mobile-nav-link" (click)="closeMenu()">
+            <span class="material-icons text-lg">mail</span> Contact
+          </a>
+          <hr class="border-white/10 my-2">
+          @if (isLoggedIn) {
+            <a [routerLink]="currentUser?.role === 'ADMIN' ? '/admin-dashboard' : '/member-home'"
+               class="mobile-nav-link text-primary" (click)="closeMenu()">
+              <span class="material-icons text-lg">account_circle</span> Mon Compte
+            </a>
+            <button (click)="logout()" class="mobile-nav-link text-primary">
+              <span class="material-icons text-lg">logout</span> Déconnexion
+            </button>
+          } @else {
+            <a routerLink="/login" class="btn-primary text-center text-sm mt-2" (click)="closeMenu()">Connexion</a>
+            <a routerLink="/signup" class="btn-outline text-center text-sm mt-1" (click)="closeMenu()">Inscription</a>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</nav>

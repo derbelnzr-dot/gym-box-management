@@ -1,0 +1,70 @@
+<app-header></app-header>
+
+<div class="min-h-screen flex items-center justify-center px-4 pt-24 pb-12">
+  <div class="w-full max-w-md animate-scale-in">
+
+    <div class="text-center mb-8">
+      <div class="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center mx-auto mb-4">
+        <span class="material-icons text-3xl text-white">fitness_center</span>
+      </div>
+      <h1 class="text-3xl font-extrabold text-white">Inscription</h1>
+      <p class="text-gray-400 mt-2">Rejoignez GymBox et commencez votre transformation</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm" class="glass rounded-2xl p-8 space-y-6 border border-white/5">
+
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-2">Nom d'utilisateur</label>
+        <input type="text" name="username" [(ngModel)]="user.username" #username="ngModel"
+               required minlength="3"
+               placeholder="Ex: Ahmed123"
+               class="input-premium">
+        @if (username.invalid && username.touched) {
+          <small class="text-red-400 text-xs mt-1 block">Nom requis (min 3 caractères)</small>
+        }
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+        <input type="email" name="email" [(ngModel)]="user.email" #email="ngModel"
+               required email
+               placeholder="exemple@email.com"
+               class="input-premium">
+        @if (email.invalid && email.touched) {
+          <small class="text-red-400 text-xs mt-1 block">Email invalide</small>
+        }
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-2">Mot de passe</label>
+        <div class="relative">
+          <input [type]="showPassword ? 'text' : 'password'" name="password"
+                 [(ngModel)]="user.password" #password="ngModel"
+                 required minlength="6"
+                 placeholder="********"
+                 class="input-premium pr-12">
+          <button type="button" (click)="showPassword = !showPassword"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors">
+            <span class="material-icons text-lg">{{ showPassword ? 'visibility_off' : 'visibility' }}</span>
+          </button>
+        </div>
+        @if (password.invalid && password.touched) {
+          <small class="text-red-400 text-xs mt-1 block">Min 6 caractères requis</small>
+        }
+      </div>
+
+      <button type="submit" [disabled]="signupForm.invalid || loading"
+              class="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+        @if (loading) {
+          <span class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+        }
+        {{ loading ? 'Inscription...' : 'S\'inscrire' }}
+      </button>
+
+      <p class="text-center text-sm text-gray-400">
+        Déjà membre ?
+        <a routerLink="/login" class="text-primary hover:text-red-400 font-semibold transition-colors">Se connecter</a>
+      </p>
+    </form>
+  </div>
+</div>

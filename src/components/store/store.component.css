@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  background: #0F172A;
+}
+
+select.input-premium option {
+  background: #0F172A;
+  color: #FFFFFF;
+}

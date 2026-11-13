@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="480" viewBox="0 0 600 480">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#fb923c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="480" fill="url(#bg)"/>
+  <circle cx="300" cy="235" r="210" fill="url(#glow)"/>
+  <circle cx="300" cy="188" r="62" fill="#cbd5e1"/>
+  <path d="M300 250 Q195 250 168 335 Q155 398 300 398 Q445 398 432 335 Q405 250 300 250 Z" fill="#343e52"/>
+  <path d="M300 250 Q300 220 330 205" fill="none" stroke="#fb923c" stroke-width="10" stroke-linecap="round"/>
+  <rect x="0" y="0" width="600" height="6" fill="#fb923c"/>
+  <text x="300" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">Karim</text>
+  <text x="300" y="462" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#fb923c">Cardio Intensif</text>
+</svg>

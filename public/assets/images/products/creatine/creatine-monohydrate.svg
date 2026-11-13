@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="jar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="24" fill="url(#bg)"/>
+  <circle cx="300" cy="280" r="220" fill="url(#glow)"/>
+  <rect x="218" y="170" width="164" height="40" rx="9" fill="#475569"/>
+  <rect x="210" y="208" width="180" height="220" rx="14" fill="url(#jar)" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="230" y="232" width="140" height="120" rx="10" fill="#16a34a"/>
+  <text x="300" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff">CRÉATINE</text>
+  <text x="300" y="308" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#ffffff">MONOHYDRATE</text>
+  <text x="300" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#ffffff">Créatine Monohydrate</text>
+  <text x="300" y="508" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="600" fill="#22c55e">300 g — GYMBOX STORE</text>
+</svg>

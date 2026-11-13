@@ -1,0 +1,183 @@
+<app-header></app-header>
+
+<!-- HERO SECTION -->
+<section class="relative min-h-screen flex items-center overflow-hidden gradient-hero">
+  <div class="absolute inset-0"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24">
+    <div class="max-w-2xl animate-fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-400 mb-6">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        Ouvert 7j/7 · Découvrez l'excellence
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+        <span class="text-white">Transformez</span>
+        <br>
+        <span class="text-gradient">Votre Corps</span>
+        <br>
+        <span class="text-white">Dès Aujourd'hui</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-xl leading-relaxed">
+        Rejoignez la salle de sport premium qui vous accompagne vers vos objectifs fitness avec des coachs certifiés et des équipements de pointe.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a routerLink="/signup" class="btn-accent text-lg !px-8 !py-4">
+          Commencer maintenant
+          <span class="material-icons align-middle ml-2">arrow_forward</span>
+        </a>
+        <a routerLink="/programmes" class="btn-outline text-lg !px-8 !py-4">
+          Nos programmes
+        </a>
+      </div>
+
+      <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
+        <div class="flex -space-x-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-red-700 border-2 border-dark flex items-center justify-center text-xs font-bold">AB</div>
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 border-2 border-dark flex items-center justify-center text-xs font-bold">SM</div>
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-green-700 border-2 border-dark flex items-center justify-center text-xs font-bold">MK</div>
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 border-2 border-dark flex items-center justify-center text-xs font-bold">+2k</div>
+        </div>
+        <div>
+          <div class="flex text-primary">
+            <span class="material-icons text-sm">star</span>
+            <span class="material-icons text-sm">star</span>
+            <span class="material-icons text-sm">star</span>
+            <span class="material-icons text-sm">star</span>
+            <span class="material-icons text-sm">star</span>
+          </div>
+          <p class="text-sm text-gray-400">Note exceptionnelle de nos membres</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark to-transparent"></div>
+</section>
+
+<!-- STATS BAND -->
+<section class="relative -mt-20 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="glass rounded-2xl p-8 md:p-10 border border-white/5">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      @for (stat of stats; track stat.label) {
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-extrabold text-gradient mb-1">{{ stat.value }}</div>
+          <div class="text-sm text-gray-400">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="text-primary font-semibold text-sm tracking-wider uppercase">Pourquoi nous choisir</span>
+      <h2 class="section-title mt-2">Une expérience <span class="text-gradient">premium</span></h2>
+      <p class="section-subtitle">Tout ce dont vous avez besoin pour atteindre vos objectifs fitness</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (f of features; track f.title) {
+        <div class="card-premium group">
+          <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all duration-300">
+            <span class="material-icons text-primary text-2xl">{{ f.icon }}</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">{{ f.title }}</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">{{ f.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<section class="py-24 relative bg-gradient-to-b from-dark/50 to-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="text-primary font-semibold text-sm tracking-wider uppercase">Nos offres</span>
+      <h2 class="section-title mt-2">Programmes <span class="text-gradient">adaptés</span></h2>
+      <p class="section-subtitle">Choisissez le programme qui correspond à vos objectifs</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (p of programmes; track p.title) {
+        <div class="card-premium group relative overflow-hidden">
+          <div class="absolute top-4 right-4">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-primary/20 text-primary">{{ p.tag }}</span>
+          </div>
+          <div class="mb-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-red-800/20 flex items-center justify-center">
+              <span class="material-icons text-primary text-2xl">fitness_center</span>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">{{ p.title }}</h3>
+          <div class="flex items-center gap-2 text-sm text-gray-400 mb-1">
+            <span class="material-icons text-base">schedule</span> {{ p.duration }}
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+            <span class="material-icons text-base">signal_cellular_alt</span> {{ p.level }}
+          </div>
+          <div class="text-2xl font-extrabold text-gradient mb-5">{{ p.price }}</div>
+          <button class="w-full py-3 rounded-xl text-sm font-semibold border border-white/10 text-gray-400 hover:text-white hover:border-primary/50 hover:bg-primary/5 transition-all duration-300">
+            En savoir plus
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="text-primary font-semibold text-sm tracking-wider uppercase">Témoignages</span>
+      <h2 class="section-title mt-2">Ce que nos <span class="text-gradient">membres</span> disent</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @for (t of testimonials; track t.name) {
+        <div class="card-premium">
+          <div class="flex text-primary mb-4">
+            @for (star of [1,2,3,4,5]; track star) {
+              <span class="material-icons text-sm">star</span>
+            }
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">"{{ t.text }}"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-sm font-bold">
+              {{ t.name.charAt(0) }}{{ t.name.split(' ')[1]?.charAt(0) || '' }}
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-white">{{ t.name }}</div>
+              <div class="text-xs text-gray-400">Membre GymBox</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 relative gradient-hero">
+  <div class="absolute inset-0"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+      Prêt à <span class="text-gradient">transformer</span> votre vie ?
+    </h2>
+    <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+      Rejoignez GymBox aujourd'hui et bénéficiez d'un accompagnement personnalisé pour atteindre vos objectifs fitness.
+    </p>
+    <a routerLink="/signup" class="btn-primary text-lg !px-10 !py-4 inline-flex items-center gap-2">
+      Rejoindre maintenant
+      <span class="material-icons">arrow_forward</span>
+    </a>
+  </div>
+</section>
+
+<app-footer></app-footer>

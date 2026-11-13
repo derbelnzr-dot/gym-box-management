@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<section class="min-h-screen pt-24 pb-16">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 animate-fade-in">
+      <div class="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center mx-auto mb-4">
+        <span class="material-icons text-3xl text-white">mail</span>
+      </div>
+      <h1 class="text-3xl font-extrabold text-white">
+        Contacter <span class="text-gradient">{{ coachName }}</span>
+      </h1>
+      <p class="text-gray-400 mt-2">Envoyez un message directement à {{ coachName }}</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="glass rounded-2xl p-8 space-y-5 border border-white/5 animate-slide-up">
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-2">Votre nom</label>
+        <input type="text" placeholder="Votre nom" [(ngModel)]="contact.name" name="name" required class="input-premium">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-2">Votre message</label>
+        <textarea placeholder="Votre message pour {{ coachName }}..." [(ngModel)]="contact.message" name="message" rows="6" required class="input-premium resize-none"></textarea>
+      </div>
+      <button type="submit" [disabled]="!contact.name || !contact.message"
+              class="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+        @if (submitted) {
+          <span class="material-icons">check_circle</span>
+          Message envoyé à {{ coachName }} !
+        } @else {
+          <span class="material-icons">send</span>
+          Envoyer le message
+        }
+      </button>
+    </form>
+  </div>
+</section>
+
+<app-footer></app-footer>
